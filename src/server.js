@@ -1,9 +1,9 @@
-import { Schema } from './schema';
 import graphqlHTTP from 'express-graphql';
 import express from 'express';
 import 'babel-polyfill';
 import path from 'path';
 import mongoose from 'mongoose';
+import { Schema } from './schema';
 
 
 const config = require('./config/main.json');
@@ -22,5 +22,5 @@ server.use('/graphql', graphqlHTTP(request => ({
 })));
 
 server.listen(server.get('port'), () => {
-  console.log('The server is running at http://localhost:' + server.get('port'));
+  console.log('The server is running at http://localhost: %s', server.get('port'));
 });
