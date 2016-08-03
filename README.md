@@ -1,9 +1,16 @@
 # reckoner
-Your app description comes here.
+Network usage and accounting API for the Storj network. 
 
 ## Usage
 
+### Installation 
+
+```Bash
+npm install 
+```
+
 ### Start the Development Server
+
 ```Bash
 npm start
 ```
