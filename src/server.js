@@ -5,12 +5,15 @@ import 'babel-polyfill';
 import path from 'path';
 import mongoose from 'mongoose';
 
-
 const config = require('./config/main.json');
 const port = (!global.process.env.PORT) ? 1234 : global.process.env.PORT;
 const server = global.server = express();
 
-mongoose.connect(config.mongoDB);
+if (process.env.NODE_ENV === "production") {
+  mongoose.connect(process.env.DATABASE_URL);
+} else {
+  mongoose.connect(config.mongoDB);
+}
 
 server.set('port', port);
 server.use(express.static(path.join(__dirname, 'public')));
